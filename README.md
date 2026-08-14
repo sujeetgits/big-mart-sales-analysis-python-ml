@@ -23,7 +23,7 @@ An end-to-end **retail sales analytics and predictive modeling project** using t
 
 ---
 
-## 📊 Overview
+## Overview
 
 This project analyzes retail sales data to understand the factors associated with **Item Outlet Sales** and differences in performance across outlets and regions.
 
@@ -42,7 +42,7 @@ The final stage uses **Random Forest Regression** and **XGBRFRegressor** to pred
 
 ---
 
-## 🎯 Project Objectives
+## Project Objectives
 
 The main objectives of this project are:
 
@@ -57,7 +57,7 @@ The main objectives of this project are:
 
 ---
 
-## 📁 Dataset
+## Dataset
 
 The project uses the **Big Mart Sales dataset**, containing **8,523 observations and 12 variables**.
 
@@ -90,7 +90,7 @@ The project uses the **Big Mart Sales dataset**, containing **8,523 observations
 
 ---
 
-## 🛠️ Tools & Technologies
+## Tools & Technologies
 
 ### Programming Language
 - Python
@@ -123,7 +123,7 @@ The project uses the **Big Mart Sales dataset**, containing **8,523 observations
 
 ---
 
-## 🔄 Project Workflow
+## Project Workflow
 
 ```text
 Raw Dataset
@@ -165,7 +165,7 @@ Model Evaluation & Feature Importance
 
 ---
 
-## 🧹 Data Cleaning & Preprocessing
+## Data Cleaning & Preprocessing
 
 ### 1. Missing `Item_Weight`
 
@@ -202,7 +202,7 @@ Inconsistent values in `Item_Fat_Content` were standardized:
 
 ---
 
-## 🔍 Exploratory Data Analysis
+## Exploratory Data Analysis
 
 ### 1. Sales Performance by Outlet
 
@@ -211,15 +211,15 @@ Total sales were compared across all outlets.
 The highest total sales were observed for:
 
 - **OUT027:** approximately ₹34.54 lakh
-- **OUT049:** approximately ₹21.84 lakh
 - **OUT035:** approximately ₹22.68 lakh
+- **OUT049:** approximately ₹21.84 lakh
 - **OUT017:** approximately ₹21.67 lakh
 - **OUT013:** approximately ₹21.43 lakh
 
 The lowest sales were observed for:
 
-- **OUT019:** approximately ₹1.80 lakh
 - **OUT010:** approximately ₹1.88 lakh
+- **OUT019:** approximately ₹1.80 lakh
 
 ---
 
@@ -301,7 +301,20 @@ Examples:
 
 ---
 
-## 🤖 Predictive Modeling
+## Key Findings
+
+1. **OUT027 was the strongest outlet** by total sales, generating approximately ₹34.54 lakh.
+2. **Fruits and Vegetables** was the highest-selling product category, followed closely by **Snack Foods**.
+3. **Tier 3 locations** generated the highest total sales.
+4. **Tier 2 locations** recorded the highest average sales per item.
+5. **Supermarket Type3** had the highest average sales among the outlet types analyzed.
+6. `Outlet_Type` was the most important feature in the XGBRF model.
+7. `Store_age`, `Item_MRP`, and `Outlet_Identifier` were also important predictors.
+8. The final XGBRF model achieved a test-set **R² of 0.6174**.
+
+---
+
+## Predictive Modeling
 
 The target variable for prediction was:
 
@@ -325,29 +338,25 @@ Categorical variables were converted into numerical representations using `Ordin
 
 ---
 
-## 🌲 Model 1 — Random Forest Regression
+### 🌲 Model 1 — Random Forest Regression
 
 A Random Forest Regressor with 100 trees was evaluated using 5-fold cross-validation.
 
-### Cross-Validated R²
-
-**Mean R² = 0.5578**
+**Cross-Validated R² = 0.5578**
 
 ---
 
-## 🚀 Model 2 — XGBRFRegressor
+### 🚀 Model 2 — XGBRFRegressor
 
 An `XGBRFRegressor` with 100 estimators was evaluated using 5-fold cross-validation.
 
-### Cross-Validated R²
-
-**Mean R² = 0.5963**
+**Cross-Validated R² = 0.5963**
 
 The XGBRF-based model performed better than the Random Forest model in cross-validation.
 
 ---
 
-## 🎯 Feature Selection
+## Feature Importance
 
 Feature importance from the XGBRF model showed that the strongest predictors were:
 
@@ -366,7 +375,7 @@ Based on this analysis, several lower-importance features were removed before fi
 
 ---
 
-## 📈 Final Model Evaluation
+## Model Evaluation
 
 The final XGBRF model was trained using an **80/20 train-test split**.
 
@@ -380,9 +389,7 @@ The final XGBRF model was trained using an **80/20 train-test split**.
 
 The final model achieved an **R² of approximately 0.617**, indicating that the model explains around 61.7% of the variation in the test-set sales values.
 
----
-
-## 🔮 Example Prediction
+### 🔮 Example Prediction
 
 The final model was also used to generate a sample sales prediction for a manually specified feature vector.
 
@@ -394,7 +401,7 @@ Example predicted `Item_Outlet_Sales`:
 
 ---
 
-## ▶️ How to Run the Project
+## How to Run the Project
 
 ### 1. Clone the repository
 
@@ -413,9 +420,7 @@ pip install pandas numpy matplotlib seaborn scikit-learn pymc arviz xgboost
 
 The analysis was developed in Google Colab.
 
-**Google Colab Notebook:**
-
-[Open the Big Mart Sales Analysis Notebook](https://colab.research.google.com/drive/16eYFSFgL3xP256eaOY0_FaaiqHwLgcN0?usp=sharing)
+**Google Colab Notebook:** [Open the Big Mart Sales Analysis Notebook](https://colab.research.google.com/drive/16eYFSFgL3xP256eaOY0_FaaiqHwLgcN0?usp=sharing)
 
 ### 4. Update the dataset path
 
@@ -464,20 +469,7 @@ big-mart-sales-analysis/
 
 ---
 
-## 💡 Key Insights
-
-1. **OUT027 was the strongest outlet** by total sales, generating approximately ₹34.54 lakh.
-2. **Fruits and Vegetables** was the highest-selling product category, followed closely by **Snack Foods**.
-3. **Tier 3 locations** generated the highest total sales.
-4. **Tier 2 locations** recorded the highest average sales per item.
-5. **Supermarket Type3** had the highest average sales among the outlet types analyzed.
-6. `Outlet_Type` was the most important feature in the XGBRF model.
-7. `Store_age`, `Item_MRP`, and `Outlet_Identifier` were also important predictors.
-8. The final XGBRF model achieved a test-set **R² of 0.6174**.
-
----
-
-## 📌 Conclusion
+## Conclusion
 
 This project demonstrates how retail sales data can be transformed into actionable insights through a combination of **data cleaning, exploratory data analysis, visualization, and machine learning**.
 
@@ -487,9 +479,9 @@ The final XGBRF model provides a useful baseline for predicting `Item_Outlet_Sal
 
 ---
 
-## 👤 Author
+## Author
 
-**Sujeet Sehgal**  
+**Sujeet Sehgal**
 M.Sc. Statistics | Data Analytics & Statistical Modelling
 
 ### Skills Demonstrated
